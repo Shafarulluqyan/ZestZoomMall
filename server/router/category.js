@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 const Controller = require("../controllers/controllerCategory");
 
-// router.get("/products", Controller.findAllCategory);
+router.get("/category", Controller.findAllCategory);
 
-// router.get("/products/:id", Controller.findCategoryById);
+router.get("/category/:id", Controller.findCategoryById);
 
-// router.post("/products", Controller.addCategory);
+router.post("/category", Controller.addCategory);
 
-// router.patch("/products/:id", Controller.editCategory);
+router.patch("/category/:id", Controller.editCategory);
 
-// router.delete("/products/:id", Controller.deleteCategory);
+router.delete("/category/:id", Controller.deleteCategory);
 
 module.exports = router;
