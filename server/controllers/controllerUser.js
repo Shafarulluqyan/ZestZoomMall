@@ -1,4 +1,4 @@
-const Model = require("../Models/model");
+const Model = require("../Models/modelUser");
 
 class Controller {
   static async userFindAll(req, res) {
