@@ -10,6 +10,7 @@ class Controller {
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
+  
   static async userFindOne(req, res) {
     try {
       const { id } = req.params;
@@ -20,6 +21,7 @@ class Controller {
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
+
   static async postUser(req, res) {
     try {
       const {
@@ -45,6 +47,7 @@ class Controller {
       res.status(500).json({ message: "Internal Server Error" });
     }
   }
+
   static async editUser(req, res) {
     try {
       const { id } = req.params;
