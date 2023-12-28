@@ -7,58 +7,58 @@ const ProductsPage = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
-        <h1 className="text-3xl font-semibold text-neutral-800 mb-6">
-          Product List
-        </h1>
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-800 text-white">
+      <div className="mt-10 mx-20">
+        <h1 className="text-3xl font-bold mb-4">Product List</h1>
+
+        <div className="overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500 bg-white border-b">
+            <thead className="text-xs text-gray-700 uppercase bg-green-400">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                  ID
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                  Name
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                  Price
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                  Action
-                </th>
-                {/* Add more columns as needed */}
+                <th className="px-6 py-3">No</th>
+                <th className="px-6 py-3">Product Name</th>
+                <th className="px-6 py-3">Price</th>
+                <th className="px-6 py-3">Size</th>
+                <th className="px-6 py-3">Image</th>
+                <th className="px-6 py-3">Action</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {/* Sample data, replace with your actual data */}
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap">1</td>
-                <td className="px-6 py-4 whitespace-nowrap">Product A</td>
-                <td className="px-6 py-4 whitespace-nowrap">$20.00</td>
-                <td className="px-6 py-4 whitespace-nowrap space-x-2">
-                  <button className="bg-blue-500 px-3 py-2 rounded-md">
+
+            <tbody>
+              <tr className="border-b">
+                <td className="px-6 py-4">1</td>
+                <td className="px-6 py-4 font-medium whitespace-nowrap">
+                  Apple MacBook Pro 17
+                </td>
+                <td className="px-6 py-4">Rp.400.000</td>
+                <td className="px-6 py-4">XL</td>
+                <td className="px-6 py-4">www.imageurl.jpg</td>
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
                     Edit
-                  </button>
-                  <button className="bg-red-500 px-3 py-2 rounded-md">
-                    Delete
-                  </button>
+                  </a>
                 </td>
               </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap">2</td>
-                <td className="px-6 py-4 whitespace-nowrap">Product B</td>
-                <td className="px-6 py-4 whitespace-nowrap">$30.00</td>
-                <td className="px-6 py-4 whitespace-nowrap space-x-2">
-                  <button className="bg-blue-500 px-3 py-2 rounded-md">
+
+              <tr className="border-b bg-gray-50">
+                <td className="px-6 py-4">2</td>
+                <td className="px-6 py-4 font-medium whitespace-nowrap">
+                  Microsoft Surface Pro
+                </td>
+                <td className="px-6 py-4">Rp.400.000</td>
+                <td className="px-6 py-4">L</td>
+                <td className="px-6 py-4">www.imageurl.jpg</td>
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 hover:underline"
+                  >
                     Edit
-                  </button>
-                  <button className="bg-red-500 px-3 py-2 rounded-md">
-                    Delete
-                  </button>
+                  </a>
                 </td>
               </tr>
-              {/* Add more rows as needed */}
             </tbody>
           </table>
         </div>

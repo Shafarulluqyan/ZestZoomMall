@@ -4,6 +4,7 @@ import CategoryPage from "../views/CategoryPage";
 import LoginPage from "../views/LoginPage";
 import ProductsPage  from "../views/ProductsPage";
 import Layout from "../components/Layouts";
+import HistoryPage from "../views/HistoryPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/categories",
         element: <CategoryPage />,
+      },
+      {
+        path: "/histories",
+        element: <HistoryPage />,
       },
     ],
   },

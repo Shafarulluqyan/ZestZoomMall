@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <div className="bg-white py-3 flex justify-center">
+    <div className="bg-slate-100 py-3 flex justify-center">
       <a href="/">
         <img
           className="mx-auto"
