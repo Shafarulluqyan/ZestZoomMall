@@ -13,8 +13,8 @@ class Controller {
 
   static async findCategoryById(req, res) {
     try {
-      const { id } = req.params;
-      const category = await Model.categoryById(id);
+      const { _id } = req.params;
+      const category = await Model.categoryById(_id);
       res.status(200).json(category);
     } catch (err) {
       console.log(err);
@@ -36,11 +36,11 @@ class Controller {
 
   static async editCategory(req, res) {
     try {
-      const { id } = req.params;
+      const { _id } = req.params;
       const { name } = req.body;
 
       const updatedCategory = { name };
-      const result = await Model.editCategory(id, updatedCategory);
+      const result = await Model.editCategory(_id, updatedCategory);
       res.status(200).json({ message: "Success edit category" });
     } catch (error) {
       console.log(error);
@@ -50,8 +50,8 @@ class Controller {
 
   static async deleteCategory(req, res) {
     try {
-      const { id } = req.params;
-      const category = await Model.deleteCategory(id);
+      const { _id } = req.params;
+      const category = await Model.deleteCategory(_id);
       res.status(200).json({ message: "Success delete category" });
     } catch (err) {
       console.log(err);

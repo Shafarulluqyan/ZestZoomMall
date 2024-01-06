@@ -13,8 +13,8 @@ class Controller {
 
   static async findProductById(req, res) {
     try {
-      const { id } = req.params;
-      const product = await Model.productById(id);
+      const { _id } = req.params;
+      const product = await Model.productById(_id);
       res.status(200).json(product);
     } catch (err) {
       console.log(err);
@@ -26,10 +26,15 @@ class Controller {
     try {
       const { name, size, colour, price, description, mainImg, images } =
         req.body;
+
+      // Mengonversi huruf depan menjadi huruf besar
+      const capitalizedColour =
+        colour.charAt(0).toUpperCase() + colour.slice(1);
+
       const product = {
         name,
         size,
-        colour,
+        colour: capitalizedColour,
         price,
         description,
         mainImg,
@@ -45,21 +50,25 @@ class Controller {
 
   static async editProduct(req, res) {
     try {
-      const { id } = req.params;
+      const { _id } = req.params;
       const { name, size, colour, price, description, mainImg, images } =
         req.body;
+
+      // Mengonversi huruf depan menjadi huruf besar
+      const capitalizedColour =
+        colour.charAt(0).toUpperCase() + colour.slice(1);
 
       const updatedProduct = {
         name,
         size,
-        colour,
+        colour: capitalizedColour,
         price,
         description,
         mainImg,
         images,
       };
 
-      const result = await Model.editProduct(id, updatedProduct);
+      const result = await Model.editProduct(_id, updatedProduct);
       res.status(200).json({ message: "Success edit product" });
     } catch (error) {
       console.log(error);
@@ -69,8 +78,8 @@ class Controller {
 
   static async deleteProduct(req, res) {
     try {
-      const { id } = req.params;
-      const product = await Model.deleteProduct(id);
+      const { _id } = req.params;
+      const product = await Model.deleteProduct(_id);
       res.status(200).json({ message: "Success delete product" });
     } catch (err) {
       console.log(err);
@@ -78,4 +87,5 @@ class Controller {
     }
   }
 }
+
 module.exports = Controller;

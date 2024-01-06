@@ -13,13 +13,13 @@ const DashboardPage = () => {
         {/* Grid untuk Kolom Data */}
         <div className="grid grid-cols-3 gap-4">
           {/* Kolom 1 - Products */}
-          <div className="bg-white p-3 rounded shadow-lg w-full">
+          <div className="bg-white p-3 rounded-lg shadow-lg w-full">
             <h2 className="font-bold text-lg">Products</h2>
             <p className="font-bold">10</p>
           </div>
 
           {/* Kolom 2 - Categories */}
-          <div className="bg-white p-3 rounded shadow-lg w-full">
+          <div className="bg-white p-3 rounded-lg shadow-lg w-full">
             <h2 className="font-bold text-lg">Categories</h2>
             <p className="font-bold">5</p>
           </div>

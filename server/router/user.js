@@ -2,16 +2,16 @@ const express = require("express");
 const Controller = require("../controllers/controllerUser");
 const router = express.Router();
 
-router.post("/register", Controller.register);
-
 router.post("/login", Controller.login);
+
+router.post("/users", Controller.addUser);
 
 router.get("/users", Controller.userFindAll);
 
-router.get("/users/:id", Controller.userFindOne);
+router.get("/users/:_id", Controller.userFindOne);
 
-router.patch("/users/:id", Controller.editUser);
+router.patch("/users/:_id", Controller.editUser);
 
-router.delete("/users/:id", Controller.deleteUser);
+router.delete("/users/:_id", Controller.deleteUser);
 
 module.exports = router;

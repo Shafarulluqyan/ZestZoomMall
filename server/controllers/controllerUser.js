@@ -8,7 +8,7 @@ const {
 const bcrypt = require("bcryptjs");
 
 class Controller {
-  static async register(req, res) {
+  static async addUser(req, res) {
     try {
       const {
         username,
@@ -56,7 +56,7 @@ class Controller {
         return res.status(401).json({ message: "Invalid email/password" });
       }
       const isValidPassword = bcrypt.compareSync(password, user.password);
-      console.log(isValidPassword, "< valid ga?");
+
       if (!isValidPassword) {
         return res.status(401).json({ message: "Invalid email/password" });
       }
@@ -81,8 +81,8 @@ class Controller {
 
   static async userFindOne(req, res) {
     try {
-      const { id } = req.params;
-      const user = await Model.userFindOne(id);
+      const { _id } = req.params;
+      const user = await Model.userFindOne(_id);
       res.status(200).json(user);
     } catch (err) {
       console.log(err);
@@ -92,7 +92,7 @@ class Controller {
 
   static async editUser(req, res) {
     try {
-      const { id } = req.params;
+      const { _id } = req.params;
       const {
         username,
         email,
@@ -111,7 +111,7 @@ class Controller {
         profilePicture,
       };
 
-      const result = await Model.editUser(id, updatedUser);
+      const result = await Model.editUser(_id, updatedUser);
       res.status(200).json({ message: "Success edit User" });
     } catch (error) {
       console.log(error);
@@ -121,8 +121,8 @@ class Controller {
 
   static async deleteUser(req, res) {
     try {
-      const { id } = req.params;
-      const user = await Model.deleteUser(id);
+      const { _id } = req.params;
+      const user = await Model.deleteUser(_id);
       res.status(200).json({ message: "Success delete User" });
     } catch (err) {
       console.log(err);

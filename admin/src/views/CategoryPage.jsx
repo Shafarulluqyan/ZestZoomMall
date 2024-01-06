@@ -1,6 +1,25 @@
+import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 
 const CategoryPage = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // Fetch categories when the component mounts
+    fetchCategory();
+  }, []);
+
+  const fetchCategory = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/category");
+      const data = await res.json(); // Menunggu resolusi Promise
+      setCategories(data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -21,35 +40,31 @@ const CategoryPage = () => {
             </thead>
 
             <tbody>
-              <tr className="border-b">
-                <td className="px-6 py-4">1</td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap">
-                  Apple MacBook Pro 17
-                </td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    Edit
-                  </a>
-                </td>
-              </tr>
-
-              <tr className="border-b bg-gray-50">
-                <td className="px-6 py-4">2</td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap">
-                  Microsoft Surface Pro
-                </td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 hover:underline"
-                  >
-                    Edit
-                  </a>
-                </td>
-              </tr>
+              {categories.map((category, index) => (
+                <tr
+                  key={category._id}
+                  className={
+                    index % 2 === 0 ? "border-b" : "border-b bg-gray-50"
+                  }
+                >
+                  <td className="px-6 py-4">{index + 1}</td>
+                  <td className="px-6 py-4 font-medium whitespace-nowrap">
+                    <ul>
+                      {category.name.map((categoryName, idx) => (
+                        <li key={idx}>{categoryName}</li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="px-6 py-4">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 hover:underline"
+                    >
+                      Edit
+                    </a>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

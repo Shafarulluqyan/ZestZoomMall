@@ -4,12 +4,12 @@ const Controller = require("../controllers/controllerCategory");
 
 router.get("/category", Controller.findAllCategory);
 
-router.get("/category/:id", Controller.findCategoryById);
+router.get("/category/:_id", Controller.findCategoryById);
 
 router.post("/category", Controller.addCategory);
 
-router.patch("/category/:id", Controller.editCategory);
+router.patch("/category/:_id", Controller.editCategory);
 
-router.delete("/category/:id", Controller.deleteCategory);
+router.delete("/category/:_id", Controller.deleteCategory);
 
 module.exports = router;
